@@ -2,6 +2,7 @@ public class MyHashTable<K, V> {
     private class HashNode<K,V>{
         private K key;
         private V value;
+        private HashNode next;
         public HashNode(K key, V value){
             this.key = key;
             this.value = value;
@@ -16,7 +17,10 @@ public class MyHashTable<K, V> {
     private int M = 11;
     private int size;
     public MyHashTable(){}
-    public MyHashTable(int M){}
+    public MyHashTable(int M){
+        this.M = M;
+        chainArray = new HashNode<K, V>[M];
+    }
     private int hash(K key){return 0;}
     public void put(K key, V value){}
     public V get(K key){}
