@@ -2,7 +2,7 @@ public class MyHashTable<K, V> {
     private class HashNode<K,V>{
         private K key;
         private V value;
-        private HashNode next;
+        private HashNode<K,V> next;
         public HashNode(K key, V value){
             this.key = key;
             this.value = value;
@@ -20,9 +20,19 @@ public class MyHashTable<K, V> {
     public MyHashTable(int M){
         this.M = M;
         chainArray = new HashNode<K, V>[M];
+        size = 0;
     }
-    private int hash(K key){return 0;}
-    public void put(K key, V value){}
+    private int hashCode(K key){
+        String keyS = key.toString();
+        int hash = 1;
+        for(int i = 0; i < keyS.length(); i++) {
+            hash = 31 * hash + keyS.charAt(i);
+        }
+        return hash;
+    }
+    public void put(K key, V value){
+
+    }
     public V get(K key){}
     public V remove(K key){}
     public boolean contains(V value){}
