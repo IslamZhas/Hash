@@ -19,7 +19,7 @@ public class MyHashTable<K, V> {
     public MyHashTable(){}
     public MyHashTable(int M){
         this.M = M;
-        chainArray = new HashNode<K, V>[M];
+        chainArray = new HashNode[M];
         size = 0;
     }
     private int hashCode(K key){
