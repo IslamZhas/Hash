@@ -31,11 +31,20 @@ public class MyHashTable<K, V> {
         return hash;
     }
     public void put(K key, V value){
-
+        int keyB = hashCode(key);
+        HashNode<K,V> newNode = chainArray[keyB];
+        while(newNode != null){
+            if((newNode.key != null && newNode.key == key) ||(key == null && newNode.key == null){
+                newNode.value = value;
+                return;
+            }
+            newNode = newNode.next;
+        }
     }
+    /*
     public V get(K key){}
     public V remove(K key){}
     public boolean contains(V value){}
     public K getKey(V value){}
-
+*/
 }
