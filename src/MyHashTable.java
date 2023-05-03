@@ -34,7 +34,7 @@ public class MyHashTable<K, V> {
         int keyB = hashCode(key);
         HashNode<K,V> newNode = chainArray[keyB];
         while(newNode != null){
-            if((newNode.key != null && newNode.key == key) ||(key == null && newNode.key == null){
+            if((newNode.key != null && newNode.key == key) ||(key == null && newNode.key == null)){
                 newNode.value = value;
                 return;
             }
@@ -52,7 +52,17 @@ public class MyHashTable<K, V> {
         }
         return null;
     }
-    public V remove(K key){return null;}
+    public V remove(K key){
+        int keyB = hashCode(key);
+        HashNode<K,V> newNode = chainArray[keyB];
+        while (newNode != null) {
+            if(newNode.key == key){
+                newNode.value = newNode.next.value;
+                return newNode.value;
+            }
+        }
+        return null;
+    }
     public boolean contains(V value){return false;}
     public K getKey(V value){return null;}
 }
