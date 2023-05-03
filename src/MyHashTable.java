@@ -41,10 +41,18 @@ public class MyHashTable<K, V> {
             newNode = newNode.next;
         }
     }
-    /*
-    public V get(K key){}
-    public V remove(K key){}
-    public boolean contains(V value){}
-    public K getKey(V value){}
-*/
+
+    public V get(K key){
+        int keyB = hashCode(key);
+        HashNode<K,V> newNode = chainArray[keyB];
+        while (newNode != null) {
+            if(newNode.key == key){
+                return newNode.value;
+            }
+        }
+        return null;
+    }
+    public V remove(K key){return null;}
+    public boolean contains(V value){return false;}
+    public K getKey(V value){return null;}
 }
