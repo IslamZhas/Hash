@@ -42,6 +42,10 @@ public class MyHashTable<K, V> {
         }
     }
 
+    public int getSize(){
+        return size;
+    }
+
     public V get(K key){
         int keyB = hashCode(key);
         HashNode<K,V> newNode = chainArray[keyB];
